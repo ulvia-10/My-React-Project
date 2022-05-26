@@ -1,0 +1,11 @@
+.username{
+    color: blueviolet;
+}
+.widget{
+    display: flex;
+    justify-content: space-evenly;
+   margin-left: 80px;
+}
+h1{
+    color: black;
+}

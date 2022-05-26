@@ -1,0 +1,11 @@
+.username{
+    color: blueviolet;
+}
+.button__logout{
+    padding: 5px;
+    width: 80px;
+    background: rgb(77, 184, 188);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
