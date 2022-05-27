@@ -46,10 +46,12 @@
   border-radius: 5px;
   color: darkblue;
   border: 1px dotted rgba(0,0,139,0.596);
+  cursor: pointer;
 }
 .deletebtn{
   padding: 2px 5px;
   border-radius: 5px;
   color: green;
   border: 1px dotted rgba(106, 90, 205);
+  cursor: pointer;
 }

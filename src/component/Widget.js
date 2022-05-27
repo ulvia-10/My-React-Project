@@ -13,7 +13,7 @@ const Widget = ({type}) => {
       data= {
         title:"PASIEN",
         isMoney: false,
-        link:"View All Pasien ",
+        link: "View All Pasien ",
         icon: <PersonAddAlt1Sharp className={styling.icon}/>
 
       };

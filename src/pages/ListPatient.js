@@ -23,7 +23,7 @@ const ListPatient = (props) => {
         </div>
        
         </div>
-        <DataTable List={props.users}/>
+        <DataTable onDeletePasien={props.onDelete}  List={props.users}/>
 
     </div>
     </div>

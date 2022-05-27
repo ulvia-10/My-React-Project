@@ -4,9 +4,7 @@ NewForm => PasienIput(input:type object)
 */
 
 export const PasienInput = 
-
 [
-
   {
     id: 1,
     label: "Nama Lengkap",
@@ -17,10 +15,10 @@ export const PasienInput =
   },
   {
     id: 2,
-    label: "Usia",
+    label: "Umur",
     type: "number",
-    placeholder: "Usia... ",
-    value:"usia"
+    placeholder: "Umur... ",
+    value:"umur"
   },
   {
     id: 3,

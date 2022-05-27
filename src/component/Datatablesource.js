@@ -31,13 +31,7 @@ export const userColumns = [
     field: "noTelp",
     headerName: "No Telepon",
     width: 160,
-    renderCell: (params) => {
-      return (
-        <div className={`{classes.status} ${params.row.status}`}>
-          {params.row.status}
-        </div>
-      );
-    },
+  
   },
 ];
 

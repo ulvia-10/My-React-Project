@@ -17,23 +17,47 @@ function App() {
 
   const [pasienList, setPasienList] = useState ([]);
 
-
-  const addPasienHandler = (uName, uAge, uAlamat, uEmail, unoTelp) => {
+  const addPasienHandler = (props) => {
     setPasienList((prevpasienList)=>{
       return[
         ...prevpasienList,{
-          nama: uName, 
-          alamat: uAlamat, 
-          umur: uAge,
-          email: uEmail,
-          noTelp: unoTelp,
-          id: Math.random().toString(),
+          nama: (props.nama), 
+          alamat: (props.alamat), 
+          umur: (props.umur),
+          email: (props.email),
+          noTelp: (props.noTelp),
+          id: Math.random(),
         }
       ];
     });
   };
 
- 
+
+  const [doctorList, setDoctorList] = useState ([]);
+
+  const addDoctorHandler = (props) => {
+    setDoctorList((prevdoctorList)=>{
+      return[
+        ...prevdoctorList,{
+          nama: (props.nama), 
+          alamat: (props.alamat), 
+          umur: (props.umur),
+          email: (props.email),
+          noTelp: (props.noTelp),
+          jam: (props.jam),
+          id: Math.random(),
+        }
+      ];
+    });
+  };
+
+  const deleteListPasien = (id) =>{
+    setPasienList(pasienList.filter((daftar)=>
+    daftar.id !== id
+    ))
+  }
+
+
     return (
     <div className="App">
       <BrowserRouter>
@@ -47,9 +71,9 @@ function App() {
           <Route
             path="/NewForm"
             element={<NewForm inputs={PasienInput} title="Add New Pasien" onAddPasien={addPasienHandler} />}  ></Route>
-          <Route path="/NewFormDoctor" element={<NewForm inputs={DoctorInput} title="Add New Doctor"/>}></Route>
-          <Route path="/ListDoctor" element={<ListDoctor />}></Route>
-          <Route path="/ListPatient" element={<ListPatient users={pasienList}/>}></Route>
+          <Route path="/NewFormDoctor" element={<NewForm inputs={DoctorInput} title="Add New Doctor" onAddDoctor={addDoctorHandler}/> }></Route>
+          <Route path="/ListDoctor" element={<ListDoctor users={doctorList}/>}></Route>
+          <Route path="/ListPatient" element={<ListPatient users={pasienList} onDelete={deleteListPasien}/>}></Route>
           <Route path="/Widget" element={<Widget/>}></Route>
         </Routes>
       </BrowserRouter>

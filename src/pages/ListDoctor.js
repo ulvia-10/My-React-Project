@@ -4,8 +4,10 @@ import classes from '../pages/ListDoctor.module.css'
 import {Link} from 'react-router-dom'
 import { ListAltOutlined } from '@mui/icons-material'
 import Navbar from "../component/Navbar"
+import { userSlice } from '../features/userSlices'
 
-const ListDoctor = () => {
+const ListDoctor = (props) => {
+  console.log(props.users)
   return (
    <div>
       <Navbar/>
@@ -18,7 +20,7 @@ const ListDoctor = () => {
        </div>
      </div>
      <div className={classes.list}>
-       <DataTable/>
+       <DataTable List={props.users} />
      </div>
    </div>
    </div>

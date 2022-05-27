@@ -13,19 +13,25 @@ const actionColumn = [{
   width: 200,
   renderCell:()=> {
     return(
+      props.List?.map((user)=> (
       <div className={style.cellAction}>
         <div className={style.viewbtn}>View</div>
-        <div className={style.deletebtn}>Delete</div>
+        <button onClick={()=>props.onDeletePasien(user.id)} className={style.deletebtn}>Delete </button>
       </div>
-    )
-  }
+      ))
+  )}
+
 }
 
 ]
 
-const userRows = 
-[
+// console.log(props)
+
+//kalau mapping, jangan pakai array!! (map-> bikin array)
+
+const userRows =
   props.List?.map((user)=> (
+    (console.log(user.noTelp)),
   {
     key: (user.id),
     id: (user.id),
@@ -34,15 +40,16 @@ const userRows =
     noTelp: (user.noTelp),
     email: (user.email),
     umur: (user.umur),
-  }
+   
   
-  ))];
-
+  }
+ 
+  ));
 
 
   return (
     <div className={style.datatable}>
-    <DataGrid
+    <DataGrid 
         rows={userRows}
         columns={userColumns.concat(actionColumn)}
         pageSize={7}

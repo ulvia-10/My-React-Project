@@ -6,6 +6,7 @@ import Navbar from "../component/Navbar";
 import { useNavigate } from "react-router-dom";
 
 const NewForm = (props) => {
+
   const navigate = useNavigate();
   const [file, setFile] = useState("");
 
@@ -17,29 +18,67 @@ const NewForm = (props) => {
     noTelp: "",
   });
 
-  // React.useEffect(() => {
-  //   console.log(formData);
-  // }, [formData]);
 
+  const [formDataDoctor, setFormDataDoctor] = useState({
+    nama: "",
+    alamat: "",
+    umur: "",
+    email: "",
+    noTelp: "",
+    jam:""
+  });
+
+  React.useEffect(() => {
+    console.log(formDataDoctor);
+  }, [formDataDoctor]);
+
+  console.log(props.title)
 
   const onchange = (key) => (e) => {
+    if(props.title === 'Add New Pasien'){
     setFormData((prevState) => {
       return {
         ...prevState,
         [key]: e.target.value,
       };
     });
+  return;
+};
+
+setFormDataDoctor((prevState)=>{
+  return{
+    ...prevState,
+    [key]: e.target.value,
   };
+})
+  } 
+    
+  
+
 
   const onSubmitHandler = (event) => {
-
     event.preventDefault();
-    console.log(formData)
-    props.onAddPasien(formData);
+    console.log(formData);
 
-    navigate('/ListPatient');
+    
+
+    
+    if (props.title === "Add New Pasien") {
+      props.onAddPasien(formData);
+      navigate("/ListPatient");
+      return;
+    } 
+      props.onAddDoctor(formDataDoctor);
+      navigate("/ListDoctor");
+  
+
+   
+    // pasti object {}
+    // props.onAddPasien ({
+    //   nama: formData.nama,
+    //   etc
+    // });
   };
-
 
   return (
     <>
@@ -78,7 +117,7 @@ const NewForm = (props) => {
                     style={{ display: "none" }}
                   ></input>
                 </div>
-
+                {/* object itu harus sesuai ya!! */}
                 {props.inputs.map((input) => (
                   <div className={style.formInput} key={input.id}>
                     <label>{input.label}</label>

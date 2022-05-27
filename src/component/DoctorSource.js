@@ -10,24 +10,24 @@ export const DoctorInput= [
     },
     {
         id: 2, 
-        label: "Usia",
+        label: "Umur",
         type:"number",
-        placeholder:"Usia... ",
-        value:"umur "
+        placeholder:"Umur... ",
+        value:"umur"
     },
     {
         id: 3, 
         label: "Email",
         type:"email",
         placeholder:"Email... ",
-        value:"email "
+        value:"email"
     },
     {
         id: 4, 
         label: "Alamat",
         type:"text",
         placeholder:"Alamat... ",
-        value:"alamat "
+        value:"alamat"
     },
     {
         id: 5, 
