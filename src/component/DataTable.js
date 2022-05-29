@@ -40,12 +40,12 @@ const DataTable = (props) => {
 
   const userRows = props.List?.map(
     (user) => (
-      console.log(user.noTelp),
+      console.log(user.nama),
       {
         key: user.id,
         id: user.id,
-        username: user.name,
         img: "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+        nama: user.nama,
         noTelp: user.noTelp,
         email: user.email,
         umur: user.umur,

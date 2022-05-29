@@ -9,9 +9,8 @@ export const PasienInput =
     id: 1,
     label: "Nama Lengkap",
     type: "text",
-    placeholder: "Nama ",
+    placeholder: "Nama",
     value:"nama"
-    
   },
   {
     id: 2,

@@ -11,20 +11,20 @@ const NewForm = (props) => {
   const [file, setFile] = useState("");
 
   const [formData, setFormData] = useState({
-    nama: "",
-    alamat: "",
-    umur: "",
-    email: "",
-    noTelp: "",
+    nama:"",
+    alamat:"",
+    umur:"",
+    email:"",
+    noTelp:"",
   });
 
 
   const [formDataDoctor, setFormDataDoctor] = useState({
-    nama: "",
-    alamat: "",
-    umur: "",
-    email: "",
-    noTelp: "",
+    nama:"",
+    alamat:"",
+    umur:"",
+    email:"",
+    noTelp:"",
     jam:""
   });
 

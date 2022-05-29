@@ -9,16 +9,16 @@ import Navbar from '../component/Navbar'
 
 const ListPatient = (props) => {
 
-  console.log(props.users)
+  console.log(props.loading)
   return (
+    
     <div className={style.context}>
       <Navbar/>
     <div className={style.content}>
         <div className={style.title}>
         <h3 style={{display:'flex'}}> <ListAltRounded/> List Pasien</h3>
-        
         <div className={style.link}> 
-          <Link to="/NewForm" >Add New Pasien </Link>
+          <Link to="/NewForm" >Add New Pasien {props.loading && <div> <h1>Loading...</h1></div>} </Link>
         </div>
         </div>
         <DataTable onDeletePasien={props.onDelete}  List={props.users}/>
