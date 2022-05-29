@@ -14,14 +14,12 @@ const ListPatient = (props) => {
     <div className={style.context}>
       <Navbar/>
     <div className={style.content}>
-    
         <div className={style.title}>
         <h3 style={{display:'flex'}}> <ListAltRounded/> List Pasien</h3>
         
         <div className={style.link}> 
           <Link to="/NewForm" >Add New Pasien </Link>
         </div>
-       
         </div>
         <DataTable onDeletePasien={props.onDelete}  List={props.users}/>
 

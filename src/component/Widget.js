@@ -7,15 +7,18 @@ const Widget = ({type}) => {
   let data;
 
   const amount=100;
+
+
+
   switch(type){
 
     case "Pasien":
       data= {
         title:"PASIEN",
         isMoney: false,
-        link: "View All Pasien ",
-        icon: <PersonAddAlt1Sharp className={styling.icon}/>
-
+        link: <Link to="/ListPatient">View All Pasien</Link>,
+        icon: <PersonAddAlt1Sharp className={styling.icon}
+        />
       };
 
       break;
@@ -23,7 +26,7 @@ const Widget = ({type}) => {
         data= {
           title:"DOKTER",
           isMoney: false,
-          link:"View All Doctors ",
+          link:<Link to="/ListDoctor"> View All Doctor</Link>,
           icon: <PersonAddAlt1Outlined className={styling.icon} style={{backgroundColor: 'black'}}/>
   
         };
@@ -32,7 +35,7 @@ const Widget = ({type}) => {
           data= {
             title:"ANTRIAN",
             isMoney: false,
-            link:"View All Antrian ",
+            link: <Link to='/ListAntrian'>View All Antrian</Link>,
             icon: <PeopleOutlineSharp className={styling.icon}/>
     
           };

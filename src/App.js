@@ -11,12 +11,14 @@ import ListPatient from "../src/pages/ListPatient"
 import { DoctorInput } from "./component/DoctorSource";
 import Widget from "./component/Widget";
 import { useState } from "react";
+import Detail from "./component/Detail";
 
 function App() {
   const user = useSelector(selectUser);
 
   const [pasienList, setPasienList] = useState ([]);
 
+ let id=0;
   const addPasienHandler = (props) => {
     setPasienList((prevpasienList)=>{
       return[
@@ -26,7 +28,7 @@ function App() {
           umur: (props.umur),
           email: (props.email),
           noTelp: (props.noTelp),
-          id: Math.random(),
+          id: id+1,
         }
       ];
     });
@@ -45,7 +47,7 @@ function App() {
           email: (props.email),
           noTelp: (props.noTelp),
           jam: (props.jam),
-          id: Math.random(),
+          id: id+1,
         }
       ];
     });
@@ -67,14 +69,13 @@ function App() {
             exact
             element={user ? <Dashboard /> : <Login />}
           ></Route>
-          <Route path="/Dashboard" exact element={<Dashboard />}></Route>
-          <Route
-            path="/NewForm"
-            element={<NewForm inputs={PasienInput} title="Add New Pasien" onAddPasien={addPasienHandler} />}  ></Route>
+          <Route path="/Dashboard" element={<Dashboard />}></Route>
+          <Route path="/NewForm" element={<NewForm inputs={PasienInput} title="Add New Pasien" onAddPasien={addPasienHandler} />}  ></Route>
           <Route path="/NewFormDoctor" element={<NewForm inputs={DoctorInput} title="Add New Doctor" onAddDoctor={addDoctorHandler}/> }></Route>
           <Route path="/ListDoctor" element={<ListDoctor users={doctorList}/>}></Route>
           <Route path="/ListPatient" element={<ListPatient users={pasienList} onDelete={deleteListPasien}/>}></Route>
           <Route path="/Widget" element={<Widget/>}></Route>
+          <Route path="/ListPatient/:pasienId" element={<Detail users={pasienList}/>} ></Route>
         </Routes>
       </BrowserRouter>
     </div>

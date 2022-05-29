@@ -1,0 +1,25 @@
+.content{
+display: flex;
+justify-content: space-around;
+align-items: center;
+}
+
+.images{
+    box-shadow: 1px 2px 11px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 1px 2px 11px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 2px 11px 0px rgba(0,0,0,0.75);
+    float: left;
+    width: 400px;
+    height: 300px;
+
+}
+
+.detail{
+    box-shadow: 1px 2px 11px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 1px 2px 11px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 2px 11px 0px rgba(0,0,0,0.75);
+    float: right;
+    width: 400px;
+    height: 400px;
+    
+}
