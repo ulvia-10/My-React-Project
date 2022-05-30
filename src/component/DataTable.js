@@ -2,8 +2,7 @@ import React from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import style from "../component/Datatable.module.css";
 import { userColumns } from "../component/Datatablesource";
-import { Link } from "react-router-dom";
-import useFetch from "./useFetch";
+import { Link, useParams } from "react-router-dom";
 
 const DataTable = (props) => {
 
@@ -21,11 +20,7 @@ const DataTable = (props) => {
                 <Link to={`/ListPatient/${params.row.id}`} className={style.viewbtn}>
                   View
                 </Link>
-                <button
-                  onClick={() => props.onDeletePasien(params.row.id)}
-                  className={style.deletebtn}>
-                  Delete
-                </button>
+               
               </div>
               </>
           ]
@@ -41,11 +36,10 @@ const DataTable = (props) => {
 
   const userRows = props.List?.map(
     (user) => (
-      console.log(user.nama),
       {
         key: user.id,
         id: user.id,
-        img: user.img,
+        img: "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
         nama: user.nama,
         noTelp: user.noTelp,
         email: user.email,

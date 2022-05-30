@@ -8,8 +8,6 @@ import { ListAltRounded } from '@mui/icons-material'
 import Navbar from '../component/Navbar'
 
 const ListPatient = (props) => {
-
-  console.log(props.loading)
   return (
     
     <div className={style.context}>

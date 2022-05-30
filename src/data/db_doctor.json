@@ -1,25 +1,40 @@
 {
-    "doctorList": [
-        {
-            "nama" : "Dokter Hendra",
-            "email": "hendra.gunawan@gmail.com",
-            "alamat": "Cakung Jakarta Timur",
-            "umur": "21 Tahun ",
-            "noTelp": "08637267372",
-            "jam": "08.10 - 11.00", 
-            "id": 1
-
-        },
-        {
-            "nama" : "Dokter Fahrul",
-            "email": "fahrul.ade@gmail.com",
-            "alamat": "Cakung Jakarta Barat",
-            "umur": "50 Tahun ",
-            "noTelp": "08637267372",
-            "jam": "08.30 - 12.00", 
-            "id": 2
-
-        }
-       
-    ]
+  "doctorList": [
+    {
+      "nama": "Dokter Hendra",
+      "email": "hendra.gunawan@gmail.com",
+      "alamat": "Cakung Jakarta Timur",
+      "umur": "21 Tahun ",
+      "noTelp": "08637267372",
+      "jam": "08.10 - 11.00",
+      "id": 1
+    },
+    {
+      "nama": "Dokter Fahrul",
+      "email": "fahrul.ade@gmail.com",
+      "alamat": "Cakung Jakarta Barat",
+      "umur": "50 Tahun ",
+      "noTelp": "08637267372",
+      "jam": "08.30 - 12.00",
+      "id": 2
+    },
+    {
+      "nama": "Putra",
+      "alamat": "Jakarta",
+      "umur": "22",
+      "email": "ulvia.yulianti@gmail.com",
+      "noTelp": "0291092",
+      "jam": "jam 9",
+      "id": 3
+    },
+    {
+      "nama": "Daffa Viraka ",
+      "alamat": "Malang ",
+      "umur": "22",
+      "email": "putra.yulianti@gmail.com",
+      "noTelp": "928198291",
+      "jam": "jam 2100",
+      "id": 4
+    }
+  ]
 }

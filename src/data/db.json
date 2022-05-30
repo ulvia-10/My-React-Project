@@ -1,33 +1,28 @@
 {
-    "PasienList" : [
-        {
-            "nama": "Ulvia Yulianti ",
-            "alamat": "Cakung Jakarta Timur ",
-            "umur": "21", 
-            "email": "ulvia.yulianti@gmail.com",
-            "noTelp":"0816732732362",
-            "id": "1"
-        },
-        {
-            "nama": "Anindya ",
-            "alamat": "Malang Jawa Timur ",
-            "umur": "21", 
-            "email": "anindya@outlook.com",
-            "noTelp":"9823913273213",
-            "id": "2"
-        },
-        {
-            "nama": "Puput Ismayati ",
-            "alamat": "Pisangan Lama Jakarta Timur",
-            "umur": "31", 
-            "email": "puputismayati@gmail.com",
-            "noTelp":"9823913273213",
-            "id": "3"
-        }
-
-    ]
-
-
+  "PasienList": [
+    {
+      "nama": "Ulvia",
+      "alamat": "Malang",
+      "umur": "21",
+      "email": "ulvia.yulianti@gmail.com",
+      "noTelp": "8767876",
+      "id": "1"
+    },
+    {
+      "nama": "Via",
+      "alamat": "Ngantang",
+      "umur": "90",
+      "email": "putra.yulianti@gmail.com",
+      "noTelp": "8767876",
+      "id": "2"
+    },
+    {
+      "nama": "via",
+      "alamat": "Jakarta",
+      "umur": "21",
+      "email": "ulvia.yulianti@gmail.com",
+      "noTelp": "8767876",
+      "id": "3"
+    }
+  ]
 }
-
-

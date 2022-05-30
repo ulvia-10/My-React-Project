@@ -1,39 +1,56 @@
-import React from 'react'
-import Navbar from './Navbar'
-import classes from "../component/Detail.module.css"
-import { useParams } from 'react-router-dom'
-import useFetch from './useFetch'
-
+import React from "react";
+import Navbar from "./Navbar";
+import classes from "../component/Detail.module.css";
+import { useNavigate, useParams } from "react-router-dom";
+import useFetch from "./useFetch";
+import { createBrowserHistory } from "history";
 
 const Detail = () => {
-
   const { id } = useParams();
-  const {data: PasienList, error, isPending} = useFetch('http://localhost:8000/PasienList/' + id)
+  const { data: PasienList, error, isPending, } = useFetch("http://localhost:8000/PasienList/" + id);
+  const navigate = useNavigate();
 
-  console.log(PasienList)
+ const handleClick=()=>{
+    fetch('http://localhost:8000/PasienList/' + id, {
+      method: 'DELETE',
+    }).then(()=>{
+      navigate('/ListPatient')
+    })
+  }
+  console.log(PasienList);
   return (
-    <div> 
-      <Navbar/>
-      <div className={classes.content}>
-        <div className={classes.images}> 
-        </div> 
-        {isPending && PasienList === null ? <div>Loading...</div> :  (<div className={classes.detail}> 
-         <h3>Detail Page - {id}   </h3>
-         <div>
-         <h4>Nama: {PasienList.nama}</h4>
-         <h4>Umur: {PasienList.umur}</h4>
-         <h4>Alamat: {PasienList.alamat}</h4>
-         <h4>Email: {PasienList.email}</h4>
-         <h4>No Telepon: {PasienList.noTelp}</h4>
-         </div>
-         </div>
-         )}
-        {error && <div>{error}</div>}
-        <h1>Why?</h1>
-     </div>
-        
-    </div>
-  )
-        }
+    <div>
+      <Navbar />
+        {isPending && PasienList === null ? (
+          <div className={classes.loading}> <h1>Loading......</h1></div>
+        ) : (
+          <div className={classes.content}>
+          <div className={classes.images}>
+            <h3>Profile</h3>
+          </div>
 
-export default Detail
+          <div className={classes.detail}>
+          <h3 style={{alignItems: "center"}} >Detail Page - {id} </h3>
+            <div className={classes.isidetail}>
+              <h5>Nama: {PasienList.nama}</h5>
+              <h5>Umur: {PasienList.umur}</h5>
+              <h5>Alamat: {PasienList.alamat}</h5>
+              <h5>Email: {PasienList.email}</h5>
+              <h5>No Telepon: {PasienList.noTelp}</h5>
+            </div>
+            <button
+                  // onClick={() => props.onDeletePasien(params.row.id)}
+                  onClick={handleClick}
+                  className={classes.deletebtn}>
+                  Delete
+                </button>
+          </div>
+          
+          </div>
+        )}
+        {error && <div>{error}</div>}
+      </div>
+  );
+};
+
+export default Detail;

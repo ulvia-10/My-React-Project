@@ -10,7 +10,7 @@ export const PasienInput =
     label: "Nama Lengkap",
     type: "text",
     placeholder: "Nama",
-    value:"nama"
+    value:"nama",
   },
   {
     id: 2,

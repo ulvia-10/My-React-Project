@@ -10,7 +10,7 @@ import { PasienInput } from "./component/FormSource";
 import ListPatient from "../src/pages/ListPatient";
 import { DoctorInput } from "./component/DoctorSource";
 import Widget from "./component/Widget";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import Detail from "./component/Detail";
 import useFetch from "./component/useFetch";
 
@@ -20,11 +20,12 @@ function App() {
   // const [pasienList, setPasienList] = useState ([]);
  
   const [pasienList, setPasienList] = useState(null);
-  const {data: PasienList, isPending, Error} = useFetch(' http://localhost:8000/PasienList')
+  const[doctorlist, setDoctorList] = useState(null)
+  const {data: PasienList, isPending, Error} = useFetch(' http://localhost:8000/PasienList');
+  const {data: doctorList, isPendingDokter, ErrorDokter} = useFetch('http://localhost:8001/doctorList ')
   // const {data: pasienList, isPending, Error} = useFetch('')
-
   let id = 0;
-
+  
   const addPasienHandler = (props) => {
     setPasienList((prevpasienList) => {
       return [
@@ -35,13 +36,13 @@ function App() {
           umur: props.umur,
           email: props.email,
           noTelp: props.noTelp,
-          id: Math.random().toString(),
+          id: id+1,
         },
       ];
     });
   };
 
-  const [doctorList, setDoctorList] = useState(null);
+  // const [doctorList, setDoctorList] = useState(null);
 
   const addDoctorHandler = (props) => {
     setDoctorList((prevdoctorList) => {
@@ -54,7 +55,7 @@ function App() {
           email: props.email,
           noTelp: props.noTelp,
           jam: props.jam,
-          id: Math.random().toString(),
+          id: id+1,
         },
       ];
     });
@@ -98,7 +99,7 @@ function App() {
           ></Route>
           <Route
             path="/ListDoctor"
-            element={doctorList && (<ListDoctor users={doctorList} />)}
+            element={doctorList && (<ListDoctor users={doctorList} loading={isPending}/>)}
           ></Route>
           <Route
             path="/ListPatient"

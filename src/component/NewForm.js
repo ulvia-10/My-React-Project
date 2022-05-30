@@ -4,15 +4,17 @@ import style from "../component/NewForm.module.css";
 import * as AiIcons from "react-icons/ai";
 import Navbar from "../component/Navbar";
 import { useNavigate } from "react-router-dom";
+import { createBrowserHistory } from "history";
 
 const NewForm = (props) => {
 
   const navigate = useNavigate();
   const [file, setFile] = useState("");
+  const [isPending, setPending] = useState('false');
+  const history = createBrowserHistory()
 
   const [formData, setFormData] = useState({
     nama:"",
-    img:"",
     alamat:"",
     umur:"",
     email:"",
@@ -30,8 +32,8 @@ const NewForm = (props) => {
   });
 
   React.useEffect(() => {
-    console.log(formDataDoctor);
-  }, [formDataDoctor]);
+    console.log(formData);
+  }, [formData]);
 
   console.log(props.title)
 
@@ -53,23 +55,39 @@ setFormDataDoctor((prevState)=>{
   };
 })
   } 
-  
+
 
   const onSubmitHandler = (event) => {
     event.preventDefault();
-    console.log(formData);
+    // console.log(formData);
+    setPending(true)
 
-    
     if (props.title === "Add New Pasien") {
-      props.onAddPasien(formData);
+      fetch(' http://localhost:8000/PasienList', {
+        method:'POST',
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(formData)
+      }). then(()=> {
+        console.log('New Pasien Added')
+      })
+      // history.go(-1)
+      history.push('/ListPatient')
       navigate("/ListPatient");
       return;
     } 
+
+    fetch(' http://localhost:8001/doctorList', {
+        method:'POST',
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(formDataDoctor)
+      }). then(()=> {
+        console.log('New Doctor Added')
+      })
       props.onAddDoctor(formDataDoctor);
       navigate("/ListDoctor");
   
 
-   
+         // props.onAddPasien(formData);
     // pasti object {}
     // props.onAddPasien ({
     //   nama: formData.nama,
@@ -104,13 +122,13 @@ setFormDataDoctor((prevState)=>{
               <form onSubmit={onSubmitHandler}>
                 <div className={style.formInput}>
                   <label htmlFor="file" className={style.icon}>
-                    image: <DriveFolderUploadOutlined />
+                    image: <DriveFolderUploadOutlined/>
                   </label>
                   <input
                     type="file"
                     id="file"
                     onChange={(e) => setFile(e.target.files[0])}
-                    style={{ display: "none" }}
+                    style={{ display:"none"}}
                   ></input>
                 </div>
                 {/* object itu harus sesuai ya!! */}
@@ -122,14 +140,13 @@ setFormDataDoctor((prevState)=>{
                       placeholder={input.placeholder}
                       //onchange bisa pake 2 cara, yaitu dengan writing 1, atau yang 2
                       onChange={onchange(input.value)}
-                      // onChange={(e) => onchange(e, input.value)}
+                      // onChange={(e) => onchange(e, input.value)} kalau tidak ada param (e)
                     ></input>
                   </div>
                 ))}
 
-                <button className={style.btndaftar} type="submit">
-                  Daftar
-                </button>
+                {!isPending &&<button className={style.btndaftar} type="submit">Daftar</button>}
+                {isPending && <button className={style.btndaftar} type="submit">Adding User...</button>}
               </form>
             </div>
           </div>
@@ -141,4 +158,4 @@ setFormDataDoctor((prevState)=>{
 
 export default NewForm;
 
-// List name={formData.name}
+// List name={formData.name

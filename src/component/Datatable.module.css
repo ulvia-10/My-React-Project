@@ -1,5 +1,5 @@
 .datatable {
-  height: 100vh;
+  height: 80vh;
   font-weight: bold;
   width: 90%;
   padding: 10px;
@@ -38,7 +38,7 @@
 }
 .cellAction{
   display: flex;
-  align-items: center;
+ justify-content: center;
   gap: 10px;
 }
 .viewbtn{
@@ -47,11 +47,6 @@
   color: darkblue;
   border: 1px dotted rgba(0,0,139,0.596);
   cursor: pointer;
+  margin-left: 30px
 }
-.deletebtn{
-  padding: 2px 5px;
-  border-radius: 5px;
-  color: green;
-  border: 1px dotted rgba(106, 90, 205);
-  cursor: pointer;
-}
+
