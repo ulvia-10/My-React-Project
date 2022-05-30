@@ -12,6 +12,7 @@ const NewForm = (props) => {
 
   const [formData, setFormData] = useState({
     nama:"",
+    img:"",
     alamat:"",
     umur:"",
     email:"",
@@ -52,15 +53,11 @@ setFormDataDoctor((prevState)=>{
   };
 })
   } 
-    
   
-
 
   const onSubmitHandler = (event) => {
     event.preventDefault();
     console.log(formData);
-
-    
 
     
     if (props.title === "Add New Pasien") {
@@ -87,7 +84,6 @@ setFormDataDoctor((prevState)=>{
         <div className={style.content}>
           <div className={style.title}>
             <h3>
-              {" "}
               <AiIcons.AiOutlinePlusSquare /> {props.title}
             </h3>
           </div>

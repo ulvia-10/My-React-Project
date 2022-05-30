@@ -1,11 +1,12 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
 
+//end point url 
 const useFetch = (url) => {
 
     const [data, setData] = useState(null);
-    const [pending, SetisPending] = useState(true);
-    const [error, setError] = useState();
+    const [isPending, SetisPending] = useState(true);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         setTimeout(() => {
@@ -30,6 +31,8 @@ const useFetch = (url) => {
         }, 1000);
       }, [url]);
 
+      return {data, error, isPending}
+
       //when url changes, function compiled...
     
       // useEffect(() => {
@@ -46,10 +49,7 @@ const useFetch = (url) => {
       //   }, 1000);
       // }, []);
 
-      return {data, error, pending}
-  return (
-    <div>useEffect</div>
-  )
+     
 }
 
 export default useFetch

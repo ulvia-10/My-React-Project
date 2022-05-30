@@ -3,9 +3,10 @@ import { DataGrid } from "@mui/x-data-grid";
 import style from "../component/Datatable.module.css";
 import { userColumns } from "../component/Datatablesource";
 import { Link } from "react-router-dom";
+import useFetch from "./useFetch";
 
 const DataTable = (props) => {
-  console.log(props.List);
+
   // create column action
   const actionColumn = [
     {
@@ -44,7 +45,7 @@ const DataTable = (props) => {
       {
         key: user.id,
         id: user.id,
-        img: "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+        img: user.img,
         nama: user.nama,
         noTelp: user.noTelp,
         email: user.email,

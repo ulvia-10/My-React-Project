@@ -18,11 +18,13 @@ function App() {
   const user = useSelector(selectUser);
 
   // const [pasienList, setPasienList] = useState ([]);
+ 
   const [pasienList, setPasienList] = useState(null);
-  const [pending, SetisPending] = useState(true);
+  const {data: PasienList, isPending, Error} = useFetch(' http://localhost:8000/PasienList')
   // const {data: pasienList, isPending, Error} = useFetch('')
 
   let id = 0;
+
   const addPasienHandler = (props) => {
     setPasienList((prevpasienList) => {
       return [
@@ -101,19 +103,19 @@ function App() {
           <Route
             path="/ListPatient"
             element={
-              pasienList && (
+              PasienList && (
                 <ListPatient
-                  users={pasienList}
+                  users={PasienList}
                   onDelete={deleteListPasien}
-                  loading={pending}
+                  loading={isPending}
                 />
               )
             }
           ></Route>
           <Route path="/Widget" element={<Widget />}></Route>
           <Route
-            path="/ListPatient/:pasienId"
-            element={<Detail users={pasienList} />}
+            path="/ListPatient/:id"
+            element={<Detail PasienList={PasienList} />}
           ></Route>
         </Routes>
       </BrowserRouter>
